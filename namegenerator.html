@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baby Name Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    input[type="text"], select {
+      width: 80%;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #007acc;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    #nameDisplay {
+      font-size: 2rem;
+      color: #007acc;
+      margin: 1.5rem 0;
+      min-height: 2.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Baby Name Generator</h1>
+    <select id="genderSelect">
+      <option value="either">Either</option>
+      <option value="boy">Boy</option>
+      <option value="girl">Girl</option>
+    </select>
+    <input type="text" id="lastNameInput" placeholder="Enter last name">
+    <button id="generateBtn">Generate Name</button>
+    <p id="nameDisplay"></p>
+  </div>
+
+  <script>
+    // Sample list of baby first names with gender
+    const names = [
+      { name: "Olivia", gender: "girl" },
+      { name: "Liam", gender: "boy" },
+      { name: "Emma", gender: "girl" },
+      { name: "Noah", gender: "boy" },
+      { name: "Ava", gender: "girl" },
+      { name: "Elijah", gender: "boy" },
+      { name: "Sophia", gender: "girl" },
+      { name: "Oliver", gender: "boy" },
+      { name: "Isabella", gender: "girl" },
+      { name: "Lucas", gender: "boy" },
+      { name: "Mia", gender: "girl" },
+      { name: "Mason", gender: "boy" },
+      { name: "Amelia", gender: "girl" },
+      { name: "Ethan", gender: "boy" },
+      { name: "Harper", gender: "girl" },
+      { name: "Logan", gender: "boy" },
+      { name: "Evelyn", gender: "girl" },
+      { name: "James", gender: "boy" },
+      { name: "Abigail", gender: "girl" },
+      { name: "Benjamin", gender: "boy" }
+    ];
+
+    const btn = document.getElementById('generateBtn');
+    const display = document.getElementById('nameDisplay');
+    const lastNameInput = document.getElementById('lastNameInput');
+    const genderSelect = document.getElementById('genderSelect');
+
+    btn.addEventListener('click', () => {
+      const gender = genderSelect.value;  
+      let filtered = names;
+      if (gender !== 'either') {
+        // filter by selected gender
+        filtered = names.filter(n => n.gender === gender);
+      }
+      // pick a random entry from filtered list
+      const randomIndex = Math.floor(Math.random() * filtered.length);
+      const firstName = filtered[randomIndex].name;
+      // get the last name from input
+      const lastName = lastNameInput.value.trim();
+      const fullName = lastName ? `${firstName} ${lastName}` : firstName;
+      display.textContent = fullName;
+    });
+  </script>
+</body>
+</html>

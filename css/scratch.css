@@ -1,0 +1,75 @@
+.common{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-position: inside;
+}
+
+.header{
+    background-color: black;
+    color: white;
+    height: 100px;
+    line-height: 100px;
+}
+
+.mainbody{
+    background-color: #ededed;
+    padding: 20px;
+    color: black;
+}
+
+.footer{
+    position: fixed;
+    background-color: black;
+    color: white;
+    bottom: 0px;
+    height: 50px;
+    right: 5px;
+    left: 5px;
+    line-height: 50px;
+}
+
+nav {
+    background-color: lightslategray;
+    padding: 10px;
+    overflow: hidden;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+nav a:hover{
+    background-color: cadetblue;
+    
+}
+
+ul{
+    font-weight: bold;
+}
+
+ol{
+    font-weight: normal;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 20000px;   /* match the iframe’s natural width */
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin: 0 auto;     /* this centers the block */
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* maintain 16:9 aspect ratio */
+    height: 100%;
+    border: none;
+  }
